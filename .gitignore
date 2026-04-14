@@ -1,6 +1,7 @@
 # Dependencies - תיקיות התקנה
 node_modules/
 jspm_packages/
+**/node_modules/
 
 # Production - תיקיות בנייה
 build/
