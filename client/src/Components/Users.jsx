@@ -1,24 +1,24 @@
 import { useState } from "react"
-import swal from 'sweetAlert'
+import swal from "sweetalert"
+import API from "../../api"
 
 export const Users = () => {
 
 
     const [users, setUsers] = useState([])
 
-    const getAllUsers = async () => {
-        setUsers( await API.get(`http://localhost:3001/users`))
-        console.log(users)
-        
-        // setUsers([
-        //     {name:'aa' , userId:'11'},
-        //     {name:'bb' , userId:'22'},
-        //     {name:'cc' , userId:'33'},
-        //     {name:'dd' , userId:'44'},
-        // ])
-        swal('Success!', '💖💖💖💖💖💖💖💖', 'success');
-    }
+    const baseUrl = import.meta.env.VITE_API_URL;
 
+    const getAllUsers = async () => {
+        try {
+            const response = await API.get(`/users`);
+            setUsers(response.data);
+            console.log(users)            
+            swal('Success!', 'הנתונים נמשכו בהצלחה', 'success');
+        } catch (error) {
+            console.error("Error fetching users:", error);
+        }
+    }
 
     return <>
         <h3>😀😁😂🤣😃😄😋😊😉😆😅😍😘🥰😗😙🥲😎🤔🤩🤗</h3>
