@@ -8,6 +8,8 @@ export const Users = () => {
 
     const getAllUsers = async () => {
         setUsers( await API.get(`http://localhost:3001/users`))
+        console.log(users)
+        
         // setUsers([
         //     {name:'aa' , userId:'11'},
         //     {name:'bb' , userId:'22'},
