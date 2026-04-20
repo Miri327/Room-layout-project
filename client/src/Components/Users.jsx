@@ -13,7 +13,7 @@ export const Users = () => {
         try {
             const response = await API.get(`/users`);
             setUsers(response.data);
-            console.log(users)            
+            console.log(users)
             swal('Success!', 'הנתונים נמשכו בהצלחה', 'success');
         } catch (error) {
             console.error("Error fetching users:", error);
@@ -24,7 +24,7 @@ export const Users = () => {
         <h3>😀😁😂🤣😃😄😋😊😉😆😅😍😘🥰😗😙🥲😎🤔🤩🤗</h3>
         <button onClick={() => getAllUsers()}>All users</button>
         {
-            users.map(user => {
+            users && Array.isArray(users) && users.map(user => {
                 return <>
                     <p>{`user: ${user.name} , id: ${user.userId}`}</p>
                     <br />
